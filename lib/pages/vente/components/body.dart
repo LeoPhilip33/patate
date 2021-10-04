@@ -9,17 +9,30 @@ class Vente extends StatelessWidget {
         padding: const EdgeInsets.all(8),
         children: <Widget>[
           Container(
-            color: Colors.amber[600],
-            child: Text('Entry A'),
-          ),
+              child: const Center(
+            child: Text('Mettre en vente',
+                style: TextStyle(
+                  color: Colors.black,
+                  decoration: TextDecoration.none,
+                  fontSize: 25,
+                )),
+          )),
           Container(
-            color: Colors.amber[500],
-            child: const Center(child: Text('Entry B')),
-          ),
+              child: TextFormField(
+            decoration: const InputDecoration(
+                border: UnderlineInputBorder(),
+                labelText: 'Enter your username'),
+          )),
           Container(
-            color: Colors.amber[100],
-            child: const Center(child: Text('Entry C')),
-          ),
+              child: TextField(
+            decoration: const InputDecoration(
+                border: OutlineInputBorder(), hintText: 'Enter a search term'),
+          )),
+          Container(
+              child: TextField(
+            decoration: const InputDecoration(
+                border: OutlineInputBorder(), hintText: 'Enter a search term'),
+          )),
         ],
       ),
     );
