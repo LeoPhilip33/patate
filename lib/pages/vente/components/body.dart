@@ -5,13 +5,22 @@ class Vente extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: const Center(
-          child: TextField(
-            decoration: const InputDecoration(
-                border: OutlineInputBorder(), hintText: 'Enter a search term'),
+      home: ListView(
+        padding: const EdgeInsets.all(8),
+        children: <Widget>[
+          Container(
+            color: Colors.amber[600],
+            child: Text('Entry A'),
           ),
-        ),
+          Container(
+            color: Colors.amber[500],
+            child: const Center(child: Text('Entry B')),
+          ),
+          Container(
+            color: Colors.amber[100],
+            child: const Center(child: Text('Entry C')),
+          ),
+        ],
       ),
     );
   }
