@@ -18,21 +18,50 @@ class Vente extends StatelessWidget {
                 )),
           )),
           Container(
-              child: TextFormField(
-            decoration: const InputDecoration(
-                border: UnderlineInputBorder(),
-                labelText: 'Enter your username'),
-          )),
+              child: Padding(
+                  padding: EdgeInsets.only(bottom: 10.0, top: 20.0),
+                  child: Text('Phrase d\'accroche',
+                      style: TextStyle(
+                        color: Colors.black,
+                        decoration: TextDecoration.none,
+                        fontSize: 14,
+                      )))),
           Container(
               child: TextField(
             decoration: const InputDecoration(
                 border: OutlineInputBorder(), hintText: 'Enter a search term'),
           )),
           Container(
+              child: Padding(
+                  padding: EdgeInsets.only(bottom: 10.0, top: 20.0),
+                  child: Text('Description',
+                      style: TextStyle(
+                        color: Colors.black,
+                        decoration: TextDecoration.none,
+                        fontSize: 14,
+                      )))),
+          Container(
+              child: TextField(
+            minLines: 7,
+            maxLines: 8,
+            decoration: const InputDecoration(
+                border: OutlineInputBorder(), hintText: 'Description du bien'),
+          )),
+          Container(
+              child: Padding(
+                  padding: EdgeInsets.only(bottom: 10.0, top: 20.0),
+                  child: Text('Surface',
+                      style: TextStyle(
+                        color: Colors.black,
+                        decoration: TextDecoration.none,
+                        fontSize: 14,
+                      )))),
+          Container(
               child: TextField(
             decoration: const InputDecoration(
-                border: OutlineInputBorder(), hintText: 'Enter a search term'),
+                border: OutlineInputBorder(), hintText: 'Surface en m²'),
           )),
+          Container(),
         ],
       ),
     );
