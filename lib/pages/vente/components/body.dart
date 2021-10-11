@@ -1,6 +1,16 @@
 import 'package:flutter/material.dart';
+import './data_service.dart';
 
-class Vente extends StatelessWidget {
+class Vente extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => _MyVenteState();
+}
+
+class _MyVenteState extends State<Vente> {
+  final _placeTextController = TextEditingController();
+  final dataService = DataService();
+
+// class Vente extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -61,9 +71,23 @@ class Vente extends StatelessWidget {
             decoration: const InputDecoration(
                 border: OutlineInputBorder(), hintText: 'Surface en m²'),
           )),
-          Container(),
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 50),
+            child: SizedBox(
+              width: 150,
+              child: TextField(
+                  controller: _placeTextController,
+                  decoration: InputDecoration(labelText: 'City'),
+                  textAlign: TextAlign.center),
+            ),
+          ),
+          ElevatedButton(onPressed: _search, child: Text('Search'))
         ],
       ),
     );
+  }
+
+  void _search() {
+    DataService.getPlace(_placeTextController.text);
   }
 }
