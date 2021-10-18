@@ -51,6 +51,7 @@ class NavigationExample extends StatelessWidget {
               );
             },
             onSuggestionSelected: (Map<String, String> suggestion) {
+              print("suggestion:");
               print(suggestion);
               // your implementation here
             },

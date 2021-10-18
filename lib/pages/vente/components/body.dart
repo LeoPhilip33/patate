@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:ynov_immo/pages/vente/components/map.dart';
 import 'package:ynov_immo/pages/vente/components/material-app.dart';
 
