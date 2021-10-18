@@ -103,6 +103,10 @@ class _InputChip extends State<Vente> {
               ),
               // FIN Description
 
+              // MAP
+              NavigationExample(),
+              // FIN MAP
+
               // Images
               const Align(
                   alignment: Alignment.topLeft,
@@ -141,10 +145,6 @@ class _InputChip extends State<Vente> {
                   decoration: const InputDecoration(
                       border: OutlineInputBorder(), hintText: 'Surface en m²')),
               // FIN Surface
-
-              // MAP
-              NavigationExample(),
-              // FIN MAP
 
               // Critères
               const Align(
