@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ynov_immo/pages/vente/components/map.dart';
 import 'package:ynov_immo/pages/vente/components/material-app.dart';
 
 // ignore: must_be_immutable
@@ -106,6 +107,8 @@ class _InputChip extends State<Vente> {
               // MAP
               NavigationExample(),
               // FIN MAP
+
+              SizedBox(height: 300, child: MapSample()),
 
               // Images
               const Align(
