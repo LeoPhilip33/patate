@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import './data_service.dart';
 
 class Vente extends StatefulWidget {
   @override
@@ -8,7 +7,6 @@ class Vente extends StatefulWidget {
 
 class _MyVenteState extends State<Vente> {
   final _placeTextController = TextEditingController();
-  final dataService = DataService();
 
 // class Vente extends StatelessWidget {
   @override
@@ -93,13 +91,8 @@ class _MyVenteState extends State<Vente> {
                   textAlign: TextAlign.center),
             ),
           ),
-          ElevatedButton(onPressed: _search, child: Text('Search'))
         ],
       ),
     );
-  }
-
-  void _search() {
-    DataService.getPlace(_placeTextController.text);
   }
 }
