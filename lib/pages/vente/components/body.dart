@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:ynov_immo/pages/vente/components/map.dart';
 import 'package:ynov_immo/pages/vente/components/material-app.dart';
 
@@ -17,6 +18,8 @@ class _InputChip extends State<Vente> {
   bool isSelectedJardin = false;
   bool isSelectedPierresApparentes = false;
   bool isSelectedCarreauDeCiment = false;
+
+  get target => null;
 
   void initState() {
     _dropDownMenuItems = buildAndGetDropDownMenuItems(classEnergie);
@@ -108,7 +111,10 @@ class _InputChip extends State<Vente> {
               NavigationExample(),
               // FIN MAP
 
-              SizedBox(height: 300, child: MapSample()),
+              SizedBox(
+                height: 300,
+                child: MapSample(),
+              ),
 
               // Images
               const Align(
