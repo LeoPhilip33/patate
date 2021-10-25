@@ -9,6 +9,7 @@ class Vente extends StatefulWidget {
 
 class _InputChip extends State<Vente> {
   List classEnergie = ["A", "B", "C", "D", "E"];
+  var myController = TextEditingController();
 
   List<DropdownMenuItem<String>> _dropDownMenuItems;
   String _selectedClassEnergie;
@@ -24,6 +25,7 @@ class _InputChip extends State<Vente> {
   }
 
   List<DropdownMenuItem<String>> buildAndGetDropDownMenuItems(List energies) {
+    // ignore: deprecated_member_use
     List<DropdownMenuItem<String>> items = new List();
     for (String energie in energies) {
       items.add(new DropdownMenuItem(value: energie, child: new Text(energie)));
@@ -114,14 +116,41 @@ class _InputChip extends State<Vente> {
                             decoration: TextDecoration.none,
                             fontSize: 14,
                           )))),
-
               Align(
                   alignment: Alignment.topLeft,
                   child: Padding(
                       padding: EdgeInsets.only(bottom: 10.0, top: 20.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
-                        children: [Icon(Icons.add_a_photo_rounded)],
+                        children: [
+                          SizedBox(
+                            width: 300,
+                            child: TextField(
+                              decoration: InputDecoration(
+                                hintText: 'Url de l\'image',
+                              ),
+                              controller: myController,
+                            ),
+                          ),
+                          GestureDetector(
+                            // When the child is tapped, show a snackbar.
+                            onTap: () {
+                              var snackBar =
+                                  SnackBar(content: Text(myController.text));
+
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(snackBar);
+                            },
+                            // The custom button
+                            child: Container(
+                                padding: const EdgeInsets.all(12.0),
+                                decoration: BoxDecoration(
+                                  color: Colors.lightBlue,
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                child: Icon(Icons.add_a_photo_rounded)),
+                          ),
+                        ],
                       ))),
 
               // FIN Images
