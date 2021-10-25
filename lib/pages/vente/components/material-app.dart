@@ -52,8 +52,6 @@ class NavigationExample extends StatelessWidget {
               );
             },
             onSuggestionSelected: (Map<String, String> suggestion) {
-              print("suggestion:");
-              print(suggestion);
               dynamic lat = suggestion['lat'];
               dynamic long = suggestion['long'];
               globals.long = long;

@@ -20,27 +20,37 @@ class MapSample extends StatefulWidget {
 class MapSampleState extends State<MapSample> {
   Completer<GoogleMapController> _controller = Completer();
 
-  var newPosition = CameraPosition(
-      target: LatLng(num.tryParse(globals.lat).toDouble(),
-          num.tryParse(globals.long).toDouble()),
-      zoom: 10);
-
-  static final CameraPosition _initialPosition = CameraPosition(
-    target: LatLng(num.tryParse(globals.lat).toDouble(),
-        num.tryParse(globals.long).toDouble()),
-    zoom: 10,
+  static final CameraPosition _kGooglePlex = CameraPosition(
+    target: LatLng(num.tryParse(globals.long).toDouble(),
+        num.tryParse(globals.lat).toDouble()),
+    zoom: 14,
   );
+
+  static final CameraPosition _newLocation = CameraPosition(
+      bearing: 192.8334901395799,
+      target: LatLng(num.tryParse(globals.long).toDouble(),
+          num.tryParse(globals.lat).toDouble()),
+      zoom: 14);
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       body: GoogleMap(
         mapType: MapType.hybrid,
-        initialCameraPosition: _initialPosition,
+        initialCameraPosition: _kGooglePlex,
         onMapCreated: (GoogleMapController controller) {
           _controller.complete(controller);
         },
       ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: _changeLocation,
+        label: Text('Rechercher'),
+      ),
     );
+  }
+
+  Future<void> _changeLocation() async {
+    final GoogleMapController controller = await _controller.future;
+    controller.animateCamera(CameraUpdate.newCameraPosition(_newLocation));
   }
 }
