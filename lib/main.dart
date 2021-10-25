@@ -5,8 +5,11 @@ import 'package:ynov_immo/constants.dart';
 // import 'package:ynov_immo/pages/home/home-screen.dart';
 import 'package:ynov_immo/pages/vente/vente-screen.dart';
 
+import 'globals.dart' as globals;
+
 void main() {
   HttpOverrides.global = new MyHttpOverrides();
+
   runApp(MyApp());
 }
 

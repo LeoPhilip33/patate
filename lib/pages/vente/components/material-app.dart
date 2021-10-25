@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'data.dart';
+import '../../../globals.dart' as globals;
 
 class MyMaterialApp extends StatelessWidget {
   @override
@@ -53,6 +54,12 @@ class NavigationExample extends StatelessWidget {
             onSuggestionSelected: (Map<String, String> suggestion) {
               print("suggestion:");
               print(suggestion);
+              dynamic lat = suggestion['lat'];
+              dynamic long = suggestion['long'];
+              globals.long = long;
+              globals.lat = lat;
+              print('lat:' + globals.lat);
+              print('long:' + globals.long);
               // your implementation here
             },
           ),
