@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ynov_immo/pages/vente/components/map.dart';
 import 'package:ynov_immo/pages/vente/components/material-app.dart';
 
 // ignore: must_be_immutable
@@ -17,6 +18,8 @@ class _InputChip extends State<Vente> {
   bool isSelectedJardin = false;
   bool isSelectedPierresApparentes = false;
   bool isSelectedCarreauDeCiment = false;
+
+  get target => null;
 
   void initState() {
     _dropDownMenuItems = buildAndGetDropDownMenuItems(classEnergie);
@@ -105,6 +108,15 @@ class _InputChip extends State<Vente> {
               ),
               // FIN Description
 
+              // MAP
+              NavigationExample(),
+              // FIN MAP
+
+              SizedBox(
+                height: 300,
+                child: MapSample(),
+              ),
+
               // Images
               const Align(
                   alignment: Alignment.topLeft,
@@ -170,10 +182,6 @@ class _InputChip extends State<Vente> {
                   decoration: const InputDecoration(
                       border: OutlineInputBorder(), hintText: 'Surface en m²')),
               // FIN Surface
-
-              // MAP
-              NavigationExample(),
-              // FIN MAP
 
               // Critères
               const Align(

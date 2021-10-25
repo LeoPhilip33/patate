@@ -22,7 +22,7 @@ class NavigationExample extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(32.0),
+      padding: EdgeInsets.only(bottom: 10.0, top: 20.0),
       child: Column(
         children: <Widget>[
           SizedBox(
@@ -31,9 +31,11 @@ class NavigationExample extends StatelessWidget {
           TypeAheadField(
             textFieldConfiguration: TextFieldConfiguration(
               autofocus: true,
-              style: DefaultTextStyle.of(context)
-                  .style
-                  .copyWith(fontStyle: FontStyle.italic),
+              style: TextStyle(
+                color: Colors.black,
+                decoration: TextDecoration.none,
+                fontSize: 14,
+              ),
               decoration: InputDecoration(
                   border: OutlineInputBorder(), hintText: 'Votre adresse'),
             ),
@@ -49,6 +51,7 @@ class NavigationExample extends StatelessWidget {
               );
             },
             onSuggestionSelected: (Map<String, String> suggestion) {
+              print("suggestion:");
               print(suggestion);
               // your implementation here
             },
