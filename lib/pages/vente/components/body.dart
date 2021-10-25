@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ynov_immo/pages/vente/components/map.dart';
 import 'package:ynov_immo/pages/vente/components/material-app.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 // ignore: must_be_immutable
 class Vente extends StatefulWidget {
@@ -10,10 +11,26 @@ class Vente extends StatefulWidget {
 
 class _InputChip extends State<Vente> {
   List classEnergie = ["A", "B", "C", "D", "E"];
-  var myController = TextEditingController();
+  List classGes = ["A", "B", "C", "D", "E"];
+
+  var myController1 = TextEditingController();
+  var myController2 = TextEditingController();
+  var myController3 = TextEditingController();
+  var myController4 = TextEditingController();
+  var image1 =
+      "https://bazncamp.com/wp-content/themes/consultix/images/no-image-found-360x250.png";
+  var image2 =
+      "https://bazncamp.com/wp-content/themes/consultix/images/no-image-found-360x250.png";
+  var image3 =
+      "https://bazncamp.com/wp-content/themes/consultix/images/no-image-found-360x250.png";
+  var image4 =
+      "https://bazncamp.com/wp-content/themes/consultix/images/no-image-found-360x250.png";
 
   List<DropdownMenuItem<String>> _dropDownMenuItems;
+  List<DropdownMenuItem<String>> _dropDownMenuItemsGes;
+
   String _selectedClassEnergie;
+  String _selectedClassGes;
 
   bool isSelectedJardin = false;
   bool isSelectedPierresApparentes = false;
@@ -24,10 +41,23 @@ class _InputChip extends State<Vente> {
   void initState() {
     _dropDownMenuItems = buildAndGetDropDownMenuItems(classEnergie);
     _selectedClassEnergie = _dropDownMenuItems[0].value;
+
+    _dropDownMenuItemsGes = buildAndGetDropDownMenuItems(classGes);
+    _selectedClassGes = _dropDownMenuItemsGes[0].value;
     super.initState();
   }
 
   List<DropdownMenuItem<String>> buildAndGetDropDownMenuItems(List energies) {
+    // ignore: deprecated_member_use
+    List<DropdownMenuItem<String>> items = new List();
+    for (String energie in energies) {
+      items.add(new DropdownMenuItem(value: energie, child: new Text(energie)));
+    }
+    return items;
+  }
+
+  List<DropdownMenuItem<String>> buildAndGetDropDownMenuItemsGes(
+      List energies) {
     // ignore: deprecated_member_use
     List<DropdownMenuItem<String>> items = new List();
     for (String energie in energies) {
@@ -139,19 +169,18 @@ class _InputChip extends State<Vente> {
                             width: 300,
                             child: TextField(
                               decoration: InputDecoration(
-                                hintText: 'Url de l\'image',
+                                hintText: 'Url de l\'image n°1',
                               ),
-                              controller: myController,
+                              controller: myController1,
                             ),
                           ),
                           GestureDetector(
                             // When the child is tapped, show a snackbar.
                             onTap: () {
-                              var snackBar =
-                                  SnackBar(content: Text(myController.text));
-
-                              ScaffoldMessenger.of(context)
-                                  .showSnackBar(snackBar);
+                              setState(() {
+                                image1 = myController1.text;
+                              });
+                              debugPrint('Varaible bien enregistré');
                             },
                             // The custom button
                             child: Container(
@@ -164,6 +193,125 @@ class _InputChip extends State<Vente> {
                           ),
                         ],
                       ))),
+              Align(
+                  alignment: Alignment.topLeft,
+                  child: Padding(
+                      padding: EdgeInsets.only(bottom: 10.0, top: 20.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            width: 300,
+                            child: TextField(
+                              decoration: InputDecoration(
+                                hintText: 'Url de l\'image n°2',
+                              ),
+                              controller: myController2,
+                            ),
+                          ),
+                          GestureDetector(
+                            // When the child is tapped, show a snackbar.
+                            onTap: () {
+                              setState(() {
+                                image2 = myController2.text;
+                              });
+                              debugPrint('Varaible bien enregistré');
+                            },
+                            // The custom button
+                            child: Container(
+                                padding: const EdgeInsets.all(12.0),
+                                decoration: BoxDecoration(
+                                  color: Colors.lightBlue,
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                child: Icon(Icons.add_a_photo_rounded)),
+                          ),
+                        ],
+                      ))),
+              Align(
+                  alignment: Alignment.topLeft,
+                  child: Padding(
+                      padding: EdgeInsets.only(bottom: 10.0, top: 20.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            width: 300,
+                            child: TextField(
+                              decoration: InputDecoration(
+                                hintText: 'Url de l\'image n°3',
+                              ),
+                              controller: myController3,
+                            ),
+                          ),
+                          GestureDetector(
+                            // When the child is tapped, show a snackbar.
+                            onTap: () {
+                              setState(() {
+                                image3 = myController3.text;
+                              });
+                              debugPrint('Varaible bien enregistré');
+                            },
+                            // The custom button
+                            child: Container(
+                                padding: const EdgeInsets.all(12.0),
+                                decoration: BoxDecoration(
+                                  color: Colors.lightBlue,
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                child: Icon(Icons.add_a_photo_rounded)),
+                          ),
+                        ],
+                      ))),
+              Align(
+                  alignment: Alignment.topLeft,
+                  child: Padding(
+                      padding: EdgeInsets.only(bottom: 10.0, top: 20.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            width: 300,
+                            child: TextField(
+                              decoration: InputDecoration(
+                                hintText: 'Url de l\'image n°4',
+                              ),
+                              controller: myController4,
+                            ),
+                          ),
+                          GestureDetector(
+                            // When the child is tapped, show a snackbar.
+                            onTap: () {
+                              setState(() {
+                                image4 = myController4.text;
+                              });
+                              debugPrint('Varaible bien enregistré');
+                            },
+                            // The custom button
+                            child: Container(
+                                padding: const EdgeInsets.all(12.0),
+                                decoration: BoxDecoration(
+                                  color: Colors.lightBlue,
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                child: Icon(Icons.add_a_photo_rounded)),
+                          ),
+                        ],
+                      ))),
+
+              CarouselSlider(
+                options: CarouselOptions(height: 400.0),
+                items: ['$image1', '$image2', '$image3', '$image4'].map((i) {
+                  return Builder(
+                    builder: (BuildContext context) {
+                      return Container(
+                          width: MediaQuery.of(context).size.width,
+                          margin: EdgeInsets.symmetric(horizontal: 5.0),
+                          child: Image.network('$i'));
+                    },
+                  );
+                }).toList(),
+              ),
 
               // FIN Images
 
@@ -289,9 +437,9 @@ class _InputChip extends State<Vente> {
                                       fontSize: 14,
                                     )),
                                 DropdownButton(
-                                  value: _selectedClassEnergie,
-                                  items: _dropDownMenuItems,
-                                  onChanged: changedDropDownItem,
+                                  value: _selectedClassGes,
+                                  items: _dropDownMenuItemsGes,
+                                  onChanged: changedDropDownItemGes,
                                 ),
                               ],
                             ),
@@ -306,9 +454,15 @@ class _InputChip extends State<Vente> {
     );
   }
 
-  void changedDropDownItem(String selectedFruit) {
+  void changedDropDownItem(String selectedEnergie) {
     setState(() {
-      _selectedClassEnergie = selectedFruit;
+      _selectedClassEnergie = selectedEnergie;
+    });
+  }
+
+  void changedDropDownItemGes(String selectedGes) {
+    setState(() {
+      _selectedClassGes = selectedGes;
     });
   }
 }

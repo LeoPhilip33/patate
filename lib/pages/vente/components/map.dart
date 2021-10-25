@@ -23,6 +23,7 @@ class MapSampleState extends State<MapSample> {
     zoom: 14.4746,
   );
 
+  // ignore: unused_field
   static final CameraPosition _kLake = CameraPosition(
       bearing: 192.8334901395799,
       target: LatLng(2.347, 48.859),
