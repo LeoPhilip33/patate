@@ -3,7 +3,6 @@ import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'data.dart';
 import '../../../globals.dart' as globals;
 
-
 class MyMaterialApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

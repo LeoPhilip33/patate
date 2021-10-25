@@ -17,6 +17,7 @@ class _InputChip extends State<Vente> {
   var myController2 = TextEditingController();
   var myController3 = TextEditingController();
   var myController4 = TextEditingController();
+
   var image1 =
       "https://bazncamp.com/wp-content/themes/consultix/images/no-image-found-360x250.png";
   var image2 =
@@ -71,17 +72,19 @@ class _InputChip extends State<Vente> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: ListView(
-        padding: const EdgeInsets.all(8),
+        padding: const EdgeInsets.all(20),
         children: [
           Container(
               child: const Center(
+                  child: Padding(
+            padding: const EdgeInsets.only(bottom: 30),
             child: Text('Mettre en vente',
                 style: TextStyle(
                   color: Colors.black,
                   decoration: TextDecoration.none,
                   fontSize: 25,
                 )),
-          )),
+          ))),
           Column(
             children: [
               // Phrase d'accroche
@@ -106,16 +109,18 @@ class _InputChip extends State<Vente> {
                                 "Phrase d'accroche correspondant à votre bien",
                             child: Image.asset(
                               'assets/images/help.png',
-                              height: 15,
-                              width: 15,
+                              height: 17,
+                              color: Colors.yellow[700],
+                              width: 17,
                             ),
                           )
                         ],
                       ))),
-              const TextField(
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: 'Ligne d\'accroche')),
+              TextField(
+                decoration: InputDecoration(
+                  hintText: 'Ligne d\'accroche',
+                ),
+              ),
               // FIN Phrase d'accroche
 
               // Description
@@ -161,17 +166,20 @@ class _InputChip extends State<Vente> {
               Align(
                   alignment: Alignment.topLeft,
                   child: Padding(
-                      padding: EdgeInsets.only(bottom: 10.0, top: 20.0),
+                      padding: EdgeInsets.only(bottom: 10.0, top: 10.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          SizedBox(
-                            width: 300,
-                            child: TextField(
-                              decoration: InputDecoration(
-                                hintText: 'Url de l\'image n°1',
+                          Container(
+                            margin: const EdgeInsets.only(right: 20.0),
+                            child: SizedBox(
+                              width: 300,
+                              child: TextField(
+                                decoration: InputDecoration(
+                                  hintText: 'Url de l\'image n°1',
+                                ),
+                                controller: myController1,
                               ),
-                              controller: myController1,
                             ),
                           ),
                           GestureDetector(
@@ -186,7 +194,7 @@ class _InputChip extends State<Vente> {
                             child: Container(
                                 padding: const EdgeInsets.all(12.0),
                                 decoration: BoxDecoration(
-                                  color: Colors.lightBlue,
+                                  color: Colors.yellow[700],
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: Icon(Icons.add_a_photo_rounded)),
@@ -196,17 +204,20 @@ class _InputChip extends State<Vente> {
               Align(
                   alignment: Alignment.topLeft,
                   child: Padding(
-                      padding: EdgeInsets.only(bottom: 10.0, top: 20.0),
+                      padding: EdgeInsets.only(bottom: 10.0, top: 10.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          SizedBox(
-                            width: 300,
-                            child: TextField(
-                              decoration: InputDecoration(
-                                hintText: 'Url de l\'image n°2',
+                          Container(
+                            margin: const EdgeInsets.only(right: 20.0),
+                            child: SizedBox(
+                              width: 300,
+                              child: TextField(
+                                decoration: InputDecoration(
+                                  hintText: 'Url de l\'image n°2',
+                                ),
+                                controller: myController2,
                               ),
-                              controller: myController2,
                             ),
                           ),
                           GestureDetector(
@@ -221,7 +232,7 @@ class _InputChip extends State<Vente> {
                             child: Container(
                                 padding: const EdgeInsets.all(12.0),
                                 decoration: BoxDecoration(
-                                  color: Colors.lightBlue,
+                                  color: Colors.yellow[700],
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: Icon(Icons.add_a_photo_rounded)),
@@ -231,17 +242,20 @@ class _InputChip extends State<Vente> {
               Align(
                   alignment: Alignment.topLeft,
                   child: Padding(
-                      padding: EdgeInsets.only(bottom: 10.0, top: 20.0),
+                      padding: EdgeInsets.only(bottom: 10.0, top: 10.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          SizedBox(
-                            width: 300,
-                            child: TextField(
-                              decoration: InputDecoration(
-                                hintText: 'Url de l\'image n°3',
+                          Container(
+                            margin: const EdgeInsets.only(right: 20.0),
+                            child: SizedBox(
+                              width: 300,
+                              child: TextField(
+                                decoration: InputDecoration(
+                                  hintText: 'Url de l\'image n°3',
+                                ),
+                                controller: myController3,
                               ),
-                              controller: myController3,
                             ),
                           ),
                           GestureDetector(
@@ -256,7 +270,7 @@ class _InputChip extends State<Vente> {
                             child: Container(
                                 padding: const EdgeInsets.all(12.0),
                                 decoration: BoxDecoration(
-                                  color: Colors.lightBlue,
+                                  color: Colors.yellow[700],
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: Icon(Icons.add_a_photo_rounded)),
@@ -266,17 +280,20 @@ class _InputChip extends State<Vente> {
               Align(
                   alignment: Alignment.topLeft,
                   child: Padding(
-                      padding: EdgeInsets.only(bottom: 10.0, top: 20.0),
+                      padding: EdgeInsets.only(bottom: 10.0, top: 10.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          SizedBox(
-                            width: 300,
-                            child: TextField(
-                              decoration: InputDecoration(
-                                hintText: 'Url de l\'image n°4',
+                          Container(
+                            margin: const EdgeInsets.only(right: 20.0),
+                            child: SizedBox(
+                              width: 300,
+                              child: TextField(
+                                decoration: InputDecoration(
+                                  hintText: 'Url de l\'image n°4',
+                                ),
+                                controller: myController4,
                               ),
-                              controller: myController4,
                             ),
                           ),
                           GestureDetector(
@@ -291,7 +308,7 @@ class _InputChip extends State<Vente> {
                             child: Container(
                                 padding: const EdgeInsets.all(12.0),
                                 decoration: BoxDecoration(
-                                  color: Colors.lightBlue,
+                                  color: Colors.yellow[700],
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: Icon(Icons.add_a_photo_rounded)),
@@ -319,16 +336,20 @@ class _InputChip extends State<Vente> {
               const Align(
                   alignment: Alignment.topLeft,
                   child: Padding(
-                      padding: EdgeInsets.only(bottom: 10.0, top: 20.0),
+                      padding: EdgeInsets.only(bottom: 10.0),
                       child: Text('Surface',
                           style: TextStyle(
                             color: Colors.black,
                             decoration: TextDecoration.none,
                             fontSize: 14,
                           )))),
-              const TextField(
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(), hintText: 'Surface en m²')),
+
+              TextField(
+                decoration: InputDecoration(
+                  hintText: 'Surface en m²',
+                ),
+              ),
+
               // FIN Surface
 
               // Critères
@@ -354,14 +375,14 @@ class _InputChip extends State<Vente> {
                             child: Text(''),
                           ),
                           label: Text('Jardin'),
-                          backgroundColor: Colors.grey,
+                          backgroundColor: Colors.yellow[700],
                           selected: isSelectedJardin,
                           onSelected: (bool value) {
                             setState(() {
                               isSelectedJardin = value;
                             });
                           },
-                          selectedColor: Colors.green,
+                          selectedColor: Colors.yellow[900],
                         )),
                     Container(
                         alignment: Alignment.topLeft,
@@ -370,14 +391,14 @@ class _InputChip extends State<Vente> {
                             child: Text(''),
                           ),
                           label: Text('Pierres apparentes'),
-                          backgroundColor: Colors.grey,
+                          backgroundColor: Colors.yellow[700],
                           selected: isSelectedPierresApparentes,
                           onSelected: (bool value) {
                             setState(() {
                               isSelectedPierresApparentes = value;
                             });
                           },
-                          selectedColor: Colors.green,
+                          selectedColor: Colors.yellow[900],
                         )),
                     Container(
                         alignment: Alignment.topLeft,
@@ -386,14 +407,14 @@ class _InputChip extends State<Vente> {
                             child: Text(''),
                           ),
                           label: Text('Carreaux de ciment'),
-                          backgroundColor: Colors.grey,
+                          backgroundColor: Colors.yellow[700],
                           selected: isSelectedCarreauDeCiment,
                           onSelected: (bool value) {
                             setState(() {
                               isSelectedCarreauDeCiment = value;
                             });
                           },
-                          selectedColor: Colors.green,
+                          selectedColor: Colors.yellow[900],
                         )),
                   ],
                 ),
