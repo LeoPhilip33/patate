@@ -3,7 +3,6 @@ import 'dart:core';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:ynov_immo/api.dart';
-import 'package:ynov_immo/globals.dart';
 
 var postItem = {
   "id": 5,

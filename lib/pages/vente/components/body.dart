@@ -5,8 +5,6 @@ import '../../../globals.dart';
 import 'dart:convert';
 
 import 'package:carousel_slider/carousel_slider.dart';
-import 'api.dart';
-import './api.dart';
 
 import 'dart:core';
 import 'package:http/http.dart';
