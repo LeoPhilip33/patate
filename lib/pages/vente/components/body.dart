@@ -9,30 +9,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'dart:core';
 import 'package:http/http.dart';
 
-var postItem = {
-  "id": 5,
-  "id_user": 2,
-  "accroche": "Un appartement au style Haussman",
-  "type": "apartment",
-  "nb_rooms": 3,
-  "nb_bedroom": 2,
-  "description":
-      "Situé dans le triangle d'or bordelais, cet appartement de charme...",
-  "size": 50,
-  "price": 850,
-  "address": "32 rue du camel",
-  "zip_code": "33000",
-  "city": "Bordeaux",
-  "latitude": "44.8621337",
-  "longitude": "-0.5501113,15z",
-  "energy_class": "C",
-  "ges_class": "D",
-  "has_garden": 0,
-  "has_exposed_stone": 5,
-  "has_ciment_tiles": 0,
-  "has_parquet_floor": 1
-};
-
 // ignore: must_be_immutable
 class Vente extends StatefulWidget {
   @override
@@ -386,6 +362,7 @@ class _InputChip extends State<Vente> {
                           )))),
 
               TextField(
+                onChanged: (value) => surface = value,
                 decoration: InputDecoration(
                   hintText: 'Surface en m²',
                 ),
@@ -516,15 +493,20 @@ class _InputChip extends State<Vente> {
                   Future<Map<String, dynamic>> callApi(String url) async {
                     Client client = Client();
                     final response = await client.post(Uri.encodeFull(url),
-                        headers: {"Access-Control-Allow-Origin": "*"},
-                        body: json.encode(postItem));
+                        headers: <String, String>{
+                          'Content-Type': 'application/json; charset=UTF-8',
+                        },
+                        body: json.encode(
+                          postItem,
+                        ));
 
-                    print(response.statusCode);
+                    print(accroche);
                     print(json.encode(postItem));
                     if (response.statusCode == 200) {
                       final result = json.decode(response.body);
                       return result;
                     } else {
+                      print(response.statusCode);
                       throw Exception('Failed to load post');
                     }
                   }
@@ -545,12 +527,14 @@ class _InputChip extends State<Vente> {
   void changedDropDownItem(String selectedEnergie) {
     setState(() {
       _selectedClassEnergie = selectedEnergie;
+      energy = _selectedClassEnergie;
     });
   }
 
   void changedDropDownItemGes(String selectedGes) {
     setState(() {
       _selectedClassGes = selectedGes;
+      ges = _selectedClassGes;
     });
   }
 }

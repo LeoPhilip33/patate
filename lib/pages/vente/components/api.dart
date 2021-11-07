@@ -4,29 +4,29 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:ynov_immo/api.dart';
 
-var postItem = {
-  "id": 5,
-  "id_user": 2,
-  "accroche": "Un appartement au style Haussman",
-  "type": "apartment",
-  "nb_rooms": 3,
-  "nb_bedroom": 2,
-  "description":
-      "Situé dans le triangle d'or bordelais, cet appartement de charme...",
-  "size": 50,
-  "price": 850,
-  "address": "32 rue du camel",
-  "zip_code": "33000",
-  "city": "Bordeaux",
-  "latitude": "44.8621337",
-  "longitude": "-0.5501113,15z",
-  "energy_class": "C",
-  "ges_class": "D",
-  "has_garden": 0,
-  "has_exposed_stone": 5,
-  "has_ciment_tiles": 0,
-  "has_parquet_floor": 1
-};
+// var postItem = {
+//   "id": 5,
+//   "id_user": 2,
+//   "accroche": "Un appartement au style Haussman",
+//   "type": "apartment",
+//   "nb_rooms": 3,
+//   "nb_bedroom": 2,
+//   "description":
+//       "Situé dans le triangle d'or bordelais, cet appartement de charme...",
+//   "size": 50,
+//   "price": 850,
+//   "address": "32 rue du camel",
+//   "zip_code": "33000",
+//   "city": "Bordeaux",
+//   "latitude": "44.8621337",
+//   "longitude": "-0.5501113,15z",
+//   "energy_class": "C",
+//   "ges_class": "D",
+//   "has_garden": 0,
+//   "has_exposed_stone": 5,
+//   "has_ciment_tiles": 0,
+//   "has_parquet_floor": 1
+// };
 
 Future<Map<String, dynamic>> callApi(String url) async {
   Client client = Client();
