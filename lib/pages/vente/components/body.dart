@@ -372,7 +372,8 @@ class _InputChip extends State<Vente> {
                         alignment: Alignment.topLeft,
                         child: InputChip(
                           avatar: CircleAvatar(
-                            child: Text(''),
+                            child: Text('J'),
+                            backgroundColor: Colors.grey[700],
                           ),
                           label: Text('Jardin'),
                           backgroundColor: Colors.yellow[700],
@@ -388,7 +389,8 @@ class _InputChip extends State<Vente> {
                         alignment: Alignment.topLeft,
                         child: InputChip(
                           avatar: CircleAvatar(
-                            child: Text(''),
+                            child: Text('P'),
+                            backgroundColor: Colors.grey[700],
                           ),
                           label: Text('Pierres apparentes'),
                           backgroundColor: Colors.yellow[700],
@@ -404,7 +406,8 @@ class _InputChip extends State<Vente> {
                         alignment: Alignment.topLeft,
                         child: InputChip(
                           avatar: CircleAvatar(
-                            child: Text(''),
+                            child: Text('C'),
+                            backgroundColor: Colors.grey[700],
                           ),
                           label: Text('Carreaux de ciment'),
                           backgroundColor: Colors.yellow[700],
