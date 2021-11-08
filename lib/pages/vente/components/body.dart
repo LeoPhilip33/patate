@@ -1,6 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:ynov_immo/pages/vente/components/map.dart';
 import 'package:ynov_immo/pages/vente/components/material-app.dart';
+import '../../../globals.dart';
+import 'dart:convert';
+
+import 'api.dart';
+import './api.dart';
+
+import 'dart:core';
+import 'package:http/http.dart';
+
+var postItem = {
+  "id": 5,
+  "id_user": 2,
+  "accroche": "Un appartement au style Haussman",
+  "type": "apartment",
+  "nb_rooms": 3,
+  "nb_bedroom": 2,
+  "description":
+      "Situé dans le triangle d'or bordelais, cet appartement de charme...",
+  "size": 50,
+  "price": 850,
+  "address": "32 rue du camel",
+  "zip_code": "33000",
+  "city": "Bordeaux",
+  "latitude": "44.8621337",
+  "longitude": "-0.5501113,15z",
+  "energy_class": "C",
+  "ges_class": "D",
+  "has_garden": 0,
+  "has_exposed_stone": 5,
+  "has_ciment_tiles": 0,
+  "has_parquet_floor": 1
+};
 
 // ignore: must_be_immutable
 class Vente extends StatefulWidget {
@@ -20,6 +52,14 @@ class _InputChip extends State<Vente> {
   bool isSelectedCarreauDeCiment = false;
 
   get target => null;
+
+  String title;
+  String text = "No Value Entered";
+  void _setText() {
+    setState(() {
+      text = title;
+    });
+  }
 
   void initState() {
     _dropDownMenuItems = buildAndGetDropDownMenuItems(classEnergie);
@@ -82,10 +122,13 @@ class _InputChip extends State<Vente> {
                           )
                         ],
                       ))),
-              const TextField(
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: 'Ligne d\'accroche')),
+              TextField(
+                onChanged: (value) => accroche = value,
+                decoration: const InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Ligne d\'accroche',
+                    labelText: 'Title'),
+              ),
               // FIN Phrase d'accroche
 
               // Description
@@ -111,6 +154,7 @@ class _InputChip extends State<Vente> {
               // MAP
               NavigationExample(),
               // FIN MAP
+              // ApiCity(),
 
               SizedBox(
                 height: 300,
@@ -298,6 +342,29 @@ class _InputChip extends State<Vente> {
                           ),
                         ],
                       ))),
+              ElevatedButton(
+                onPressed: () {
+                  Future<Map<String, dynamic>> callApi(String url) async {
+                    Client client = Client();
+                    final response = await client.post(Uri.encodeFull(url),
+                        headers: {"Access-Control-Allow-Origin": "*"},
+                        body: json.encode(postItem));
+
+                    print(response.statusCode);
+                    print(json.encode(postItem));
+                    if (response.statusCode == 200) {
+                      final result = json.decode(response.body);
+                      return result;
+                    } else {
+                      throw Exception('Failed to load post');
+                    }
+                  }
+
+                  callApi('http://api.quentinguiheneuc.fr/api/v1/real-estate/');
+                },
+                child: const Text('Submit'),
+              ),
+
               // FIN Critères
             ],
           ),
