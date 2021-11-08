@@ -5,6 +5,7 @@ import 'package:ynov_immo/constants.dart';
 // import 'package:ynov_immo/pages/home/home-screen.dart';
 import 'package:ynov_immo/pages/vente/vente-screen.dart';
 
+// ignore: unused_import
 import 'globals.dart' as globals;
 
 void main() {
